@@ -4,7 +4,7 @@
   "description": "Make BINGO cards to motivate you",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start":"electron ."
   },
   "author": "Megan Renae the 21st",
   "license": "MIT",
