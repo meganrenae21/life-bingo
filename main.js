@@ -32,7 +32,12 @@ function createWindow() {
           label: "About This App",
           click: () =>
             openAboutWindow({
-              icon_path: join(__dirname, "img/3d-bingo.png")
+              icon_path: join(__dirname, "img/3d-bingo.png"),
+              package_json_dir: join(__dirname, "package-lock.json"),
+              copyright:
+                "Copyright (c) 2020 Megan Renae the 21st, distributed under MIT license",
+              product_name: "Your Best Self Bingo version",
+              use_version_info: true
             })
         }
       ]
