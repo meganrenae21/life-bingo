@@ -2,14 +2,241 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
-    <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
+    <title>Your Best Self Bingo</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script>window.$ = window.jQuery = require('jquery');</script>
+    <script src="node_modules/@popperjs/core/dist/umd/popper.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="tagsinput/bootstrap-tagsinput.min.js"></script>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
-  </body>
+    <div class="container-fluid btn-group navbar sticky-top" role="navigation" aria-label="header navigation" id="topnav">
+      <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#listForm" id="listFormBtn">
+        New List
+      </button>
+      <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#taskForm" id="taskFormBtn">
+        Add Tasks
+      </button>
+      <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#optionsForm" id="optionsFormBtn">
+        Options
+      </button>
+      <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#viewLists" id="viewListsBtn">
+        View Lists
+      </button>
+      <button type="button" class="btn btn-secondary btn-sm" id="viewCardsBtn" data-toggle="modal" data-target="#viewCards">
+        View Cards
+      </button>
+      <button type="button" class="btn btn-secondary btn-sm" id="generateCard">
+        Generate Card
+      </button>
+      <button type="button" class="btn btn-secondary btn-sm" id="saveModalBtn" data-toggle="modal" data-target="#saveModal">
+        Save Card
+      </button>
+    </div>
+    <div class="card container-fluid" id="bingoCard">
+      <div class="row card-header" id="bingoHeaderRow">
+        <div class="col" id="BHead"><h2>B</h2></div>
+        <div class="col" id="IHead"><h2>I</h2></div>
+        <div class="col" id="NHead"><h2>N</h2></div>
+        <div class="col" id="GHead"><h2>G</h2></div>
+        <div class="col" id="OHead"><h2>O</h2></div>
+      </div>
+      <div class="row card-body no-gutters" id="bingoRow1">
+        <div class="col BColItem row1Item cardSquare" id="B1"><button type="button" class="btn btn-outline-primary align-middle squareSpan text-center" id="span1">B1</button></div>
+        <div class="col IColItem row1Item cardSquare" id="I1"><button type="button" class="btn btn-outline-primary align-middle squareSpan text-center" id="span2">I1</button></div>
+        <div class="col NColItem row1Item cardSquare" id="N1"><button type="button" class="btn btn-outline-primary align-middle squareSpan text-center" id="span3">N1</button></div>
+        <div class="col GColItem row1Item cardSquare" id="G1"><button type="button" class="btn btn-outline-primary align-middle squareSpan text-center" id="span4">G1</button></div>
+        <div class="col OColItem row1Item cardSquare" id="O1"><button type="button" class="btn btn-outline-primary align-middle squareSpan text-center" id="span5">O1</button></div>
+      </div>
+      <div class="row card-body no-gutters" id="bingoRow2">
+        <div class="col BColItem row2Item cardSquare" id="B2"><button type="button" class="btn btn-outline-primary align-middle squareSpan text-center" id="span6">B2</button></div>
+        <div class="col IColItem row2Item cardSquare" id="I2"><button type="button" class="btn btn-outline-primary align-middle squareSpan text-center" id="span7">I2</button></div>
+        <div class="col NColItem row2Item cardSquare" id="N2"><button type="button" class="btn btn-outline-primary align-middle squareSpan text-center" id="span8">N2</button></div>
+        <div class="col GColItem row2Item cardSquare" id="G2"><button type="button" class="btn btn-outline-primary align-middle squareSpan text-center" id="span9">G2</button></div>
+        <div class="col OColItem row2Item cardSquare" id="O2"><button type="button" class="btn btn-outline-primary align-middle squareSpan text-center" id="span10">O2</button></div>
+      </div>
+      <div class="row card-body no-gutters" id="bingoRow3">
+        <div class="col BColItem row3Item cardSquare" id="B3"><button type="button" class="btn btn-outline-primary align-middle squareSpan text-center" id="span11">B3</button></div>
+        <div class="col IColItem row3Item cardSquare" id="I3"><button type="button" class="btn btn-outline-primary align-middle squareSpan text-center" id="span12">I3</button></div>
+        <div class="col NColItem row3Item cardSquare" id="N3"><button type="button" class="btn btn-primary align-middle squareSpan text-center" id="freespace">FREE</button></div>
+        <div class="col GColItem row3Item cardSquare" id="G3"><button type="button" class="btn btn-outline-primary align-middle squareSpan text-center" id="span13">G3</button></div>
+        <div class="col OColItem row3Item cardSquare" id="O3"><button type="button" class="btn btn-outline-primary align-middle squareSpan text-center"id="span14">O3</button></div>
+      </div>
+      <div class="row card-body no-gutters" id="bingoRow4">
+        <div class="col BColItem row4Item cardSquare" id="B4"><button type="button" class="btn btn-outline-primary align-middle squareSpan text-center" id="span15">B4</button></div>
+        <div class="col IColItem row4Item cardSquare" id="I4"><button type="button" class="btn btn-outline-primary align-middle squareSpan text-center" id="span16">I4</button></div>
+        <div class="col NColItem row4Item cardSquare" id="N4"><button type="button" class="btn btn-outline-primary align-middle squareSpan text-center" id="span17">N4</button></div>
+        <div class="col GColItem row4Item cardSquare" id="G4"><button type="button" class="btn btn-outline-primary align-middle squareSpan text-center" id="span18">G4</button></div>
+        <div class="col OColItem row4Item cardSquare" id="O4"><button type="button" class="btn btn-outline-primary  align-middle squareSpan text-center" id="span19">O4</button></div>
+      </div>
+      <div class="row card-body no-gutters" id="bingoRow5">
+        <div class="col BColItem row5Item cardSquare" id="B5"><button type="button" class="btn btn-lg btn-block btn-outline-primary align-middle squareSpan text-center" id="span20">B5</button></div>
+        <div class="col IColItem row5Item cardSquare" id="I5"><button type="button" class="btn btn-lg btn-block btn-outline-primary align-middle squareSpan text-center" id="span21">I5</button></div>
+        <div class="col NColItem row5Item cardSquare" id="N5"><button type="button" class="btn btn-lg btn-block btn-outline-primary align-middle squareSpan text-center" id="span22">N5</button></div>
+        <div class="col GColItem row5Item cardSquare" id="G5"><button type="button" class="btn  btn-lg btn-block btn-outline-primary align-middle squareSpan text-center" id="span23">G5</button></div>
+        <div class="col OColItem row5Item cardSquare" id="O5"><button type="button" class="btn btn-outline-primary btn-lg btn-block align-middle squareSpan text-center" id="span24">O5</button></div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="listForm" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="listForm" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="listFormHeading">Create a New List</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="newList">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="listNameLabel">List Name</span>
+                </div>
+                <input type="text" class="form-control" aria-label="listName" id="listName" name="listName" aria-describedby="listname">
+              </div>
+              <div class="input-group mb-3 row justify-content-center" id="tagsWrapper">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="listTagsLabel">Tags</span>
+                </div>
+                <select multiple data-role="tagsinput" id="listTags" name="listTags" class="form-control custom-select"></select>
+              </div>
+              <div class="row justify-content-center">
+              <button type="button" class="btn btn-primary justify-content-center" id="saveListBtn">Save List</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="modal fade" id="taskForm" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="taskForm" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="listFormHeading">Add Tasks</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="newTask">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="selectListLabel">List</span>
+                </div>
+                <select class="custom-select mr-sm-2" id="selectList"></select>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="taskLabel">Task</span>
+                </div>
+                <input type="text" class="form-control" aria-label="taskinput" id="taskinput" name="taskinput">
+              </div>
+              <button type="button" class="btn btn-primary" id="saveTaskBtn">Save Task</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="optionsForm" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="optionsForm" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="optionsFormHeading">Set Active Lists</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="listOptions">
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="saveSettingsBtn">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion modal fade" id="viewLists" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="viewLists" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="viewListHeading">All Lists</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="viewListsContent">
+    </div>
+  </div>
+</div>
+</div>
+  
+  <div class="modal fade" id="saveModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="saveModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="saveHeading">Save Card</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <div class="input-group row mb-3 justify-content-center">
+                <div class="input-group-prepend">
+              <span class="input-group-text">Card Name</label>
+              </div>
+              <input type="text" class="form-control" id="cardName" name="cardName">
+            </div>
+              <div id="cardtagswrapper" class="row mb-3 justify-content-center input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="selectListLabel">Tags</span>
+                </div>
+              <select multiple data-role="tagsinput" id="cardTags" name="cardTags" class="form-control custom-select"></select>
+              </div>
+            </div>
+          </form>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="saveCardBtn">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="viewCards" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="viewCardsModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="viewCardsHeading">Your Cards</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-hover table-sm table-striped table-primary" id="cardsTable">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Tags</th>
+                <th scope="col">Score</th>
+                <th scope="col">Bingos</th>
+                <th scope="col">Blackout?</th>
+              </tr>
+            </thead>
+            <tbody id="cardList">
+              <!-- dynamic content -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
 </html>

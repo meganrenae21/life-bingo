@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "activeTasks.json",
+  "title": "User Lists",
+  "description": "All task lists available to the user",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "the title of the list"
+    },
+    "tags": {
+      "type": "array",
+      "description": "a list of descriptors defined by user",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "tasks": {
+      "type": "array",
+      "description": "all of the tasks in the list",
+      "items": {
+        "type": "object",
+        "description": "each individual task in the last with its own properties",
+        "properties": {
+          "task": {
+            "type": "string",
+            "description": "displayed text of the task"
+          },
+          "id": {
+            "type": "integer",
+            "description": "the unique identifier of the task"
+          }
+        },
+        "required": ["task", "id"]
+      },
+      "uniqueItems": true,
+      "minItems": 1
+    },
+    "_id": {
+      "type": "string",
+      "description": "the unique identifier of the list"
+    },
+    "active": {
+      "type": "boolean",
+      "description": "determines whether tasks in the list are available for generation into new cards"
+    }
+  },
+  "required": ["name", "tasks", "_id", "active"]
+}

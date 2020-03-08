@@ -1,0 +1,42 @@
+@import url("node_modules/bootstrap/dist/css/bootstrap.min.css");
+@import url("tagsinput/bootstrap-tagsinput.css");
+#topnav {
+  padding: 0;
+}
+h2 {
+  text-align: center;
+}
+.cardSquare {
+  text-align: center;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #cecece;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  height: 110px;
+}
+.taskTable {
+  display: none;
+}
+.row {
+  margin: 0;
+  padding: 0;
+}
+.squareSpan {
+  height: 100%;
+  width: 100%;
+}
+#bingoCard {
+  margin-top: 5px;
+}
+.modal-xl {
+  width: 80% !important;
+}
+.swal-overlay {
+  background-color: rgba(98, 101, 103, 0.5);
+}
+.swal-modal {
+  background-color: rgba(234, 237, 237);
+  border: 3px solid rgb(23, 32, 42);
+}
