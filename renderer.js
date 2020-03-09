@@ -141,7 +141,7 @@ $(document).ready(function() {
             { $set: { active: false } }
           );
         }
-        "#optionsForm".modal("hide");
+        $("#optionsForm").modal("hide");
       }
     });
   });
@@ -170,7 +170,7 @@ $(document).ready(function() {
           docs[i]["tasks"].forEach(function(item) {
             taskitems +=
               '<button class="delbtn btn btn-sm btn-block btn-outline-secondary" id="' +
-              item.Id +
+              item.id +
               '" onClick="deleteTask(this)">' +
               item.task +
               "<span>&times;</span></button>";
@@ -499,9 +499,9 @@ function loadCard(e) {
 }
 
 function deleteTask(e) {
-  e.parentNode.removeChild(e);
   userLists.find({}, function(err, docs) {
     var taskID = e.getAttribute("id");
+    e.parentNode.removeChild(e);
     var arr = [];
     var doc_id = "";
     for (var i = 0; i < docs.length; i++) {
@@ -514,9 +514,9 @@ function deleteTask(e) {
       break;
     }
     userLists.findOne({ _id: doc_id }, function(err, doc) {
-      for (var l = 0; l < doc.tasks.length; l++) {
-        if (doc.tasks[l].id !== taskID) {
-          arr.push(doc.tasks[l]);
+      for (var k = 0; k < doc.tasks.length; k++) {
+        if (doc.tasks[k].id !== taskID) {
+          arr.push(doc.tasks[k]);
         }
       }
       userLists.update({ _id: doc_id }, { $set: { tasks: arr } });

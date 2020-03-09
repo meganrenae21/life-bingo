@@ -11,17 +11,41 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: true
     },
-    icon: "img/3d-bingo.png"
+    icon: "build/icon.ico"
   });
+
+  var createModal = (htmlFile, parentWindow, width, height) => {
+    let modal = new BrowserWindow({
+      width: width,
+      height: height,
+      modal: true,
+      parent: parentWindow,
+      webPreferences: {
+        nodeIntegration: true
+      }
+    });
+
+    modal.loadFile(htmlFile);
+
+    return modal;
+  };
+
   const menu = Menu.buildFromTemplate([
     {
       label: "Help",
       submenu: [
         {
-          label: "How to Play"
+          label: "README",
+          click() {
+            createModal("README.html", win, 400, 400);
+          }
         },
         {
-          label: "Your Best Self Website"
+          label: "Your Best Self Website",
+          click: async () => {
+            const { shell } = require("electron");
+            await shell.openExternal("http://meganrenae21.github.io");
+          }
         }
       ]
     },
@@ -32,7 +56,7 @@ function createWindow() {
           label: "About This App",
           click: () =>
             openAboutWindow({
-              icon_path: join(__dirname, "img/3d-bingo.png"),
+              icon_path: join(__dirname, "build/icon.ico"),
               package_json_dir: join(__dirname, "package-lock.json"),
               copyright:
                 "Copyright (c) 2020 Megan Renae the 21st, distributed under MIT license",
