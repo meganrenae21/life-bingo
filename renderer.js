@@ -171,7 +171,7 @@ $(document).ready(function() {
             taskitems +=
               '<button class="delbtn btn btn-sm btn-block btn-outline-secondary" id="' +
               item.id +
-              '" onClick="deleteTask(this)">' +
+              '" onClick="deleteTask()">' +
               item.task +
               "<span>&times;</span></button>";
           });
@@ -498,29 +498,34 @@ function loadCard(e) {
   });
 }
 
-function deleteTask(e) {
+var taskID;
+function deleteTask() {
+  var doc_id;
+  var e = event.target;
+  taskID = e.id;
+  e.parentNode.removeChild(e);
   userLists.find({}, function(err, docs) {
-    var taskID = e.getAttribute("id");
-    e.parentNode.removeChild(e);
-    var arr = [];
-    var doc_id = "";
     for (var i = 0; i < docs.length; i++) {
       for (var j = 0; j < docs[i].tasks.length; j++) {
         if (docs[i].tasks[j].id == taskID) {
           doc_id = docs[i]._id;
+          finishDelete(doc_id)
+          break;
         }
-        break;
       }
-      break;
     }
-    userLists.findOne({ _id: doc_id }, function(err, doc) {
+  });
+}
+
+function finishDelete(did) {
+  var arr = [];
+    userLists.findOne({ _id: did }, function(err, doc) {
       for (var k = 0; k < doc.tasks.length; k++) {
         if (doc.tasks[k].id !== taskID) {
           arr.push(doc.tasks[k]);
         }
       }
-      userLists.update({ _id: doc_id }, { $set: { tasks: arr } });
+      userLists.update({ _id: did }, { $set: { tasks: arr } });
       userLists.persistence.compactDatafile;
     });
-  });
 }
