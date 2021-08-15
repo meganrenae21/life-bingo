@@ -169,11 +169,10 @@ $(document).ready(function() {
             '<div class="card-body" id="tasks' + docs[i]._id + '">';
           docs[i]["tasks"].forEach(function(item) {
             taskitems +=
-              '<button class="delbtn btn btn-sm btn-block btn-outline-secondary" id="' +
-              item.id +
-              '" onClick="deleteTask()">' +
+              '<div class="d-flex justify-content-between border-bottom"><div class="task_item text-center w-75 my-1" id="' +
+              item.id + '">' +
               item.task +
-              "<span>&times;</span></button>";
+              '</div><span class="dlsp badge bg-danger text-white my-1 pt-1" data-delete="' + item.id + '" onclick="deleteTask()">delete</span></div>';
           });
           $("#viewListsContent").append(
             accordionBtn + innerList + innerCard + taskitems + "</div></div>"
@@ -461,6 +460,7 @@ function loadCard(e) {
   card = {};
   toPlay = [];
   bingoCards.findOne({ _id: elem_id }, function(err, doc) {
+    gameID = doc.Query_ID;
     for (var v = 0; v < doc.Tasks.length; v++) {
       var position = doc.Tasks[v].Position;
       document.getElementById(position).innerText = doc.Tasks[v].Task;
@@ -502,8 +502,9 @@ var taskID;
 function deleteTask() {
   var doc_id;
   var e = event.target;
-  taskID = e.id;
-  e.parentNode.removeChild(e);
+  taskID = e.dataset.delete;
+  var tsk = e.parentNode;
+  tsk.parentNode.removeChild(tsk);
   userLists.find({}, function(err, docs) {
     for (var i = 0; i < docs.length; i++) {
       for (var j = 0; j < docs[i].tasks.length; j++) {
