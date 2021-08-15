@@ -2,7 +2,7 @@
 <p align="center">
 <img src="build/icon.ico" alt="logo" />
 </p>
-<p style="display:flex;justify-content:center;">
+<p align="center">
 <img src="https://img.shields.io/static/v1?label=version&message=0.1.0&color=lightgrey&style=plastic" alt="version 0.1.0" style="padding-right:2px;" />
 <img src="https://img.shields.io/static/v1?label=license&message=MIT&color=brightgreen&style=plastic" alt="MIT license" style="padding-left:2px;" />
 </p>
