@@ -60,6 +60,8 @@ If you install Node this way, npm will come prepackaged with it, so no separate 
   ```
 
 If you are unfamiliar with how to navigate the file system via the terminal, you can refer to this quick little crash course from [Codecademy](https://www.codecademy.com/learn/learn-the-command-line/modules/learn-the-command-line-navigation). 
+
+You can also download the [latest release](https://github.com/meganrenae21/life-bingo/releases) in a compressed file and extract it to your desired location rather than cloning, if you'd prefer. You would still need to run `npm install` to download the dependencies and run the app on your system.
 ## How to Play
 
 YBS Bingo has three core data types: _tasks_, _lists_, and _cards_. 
@@ -193,4 +195,4 @@ At the moment, no. I do want to make an online version of the app happen, though
 
 ### 0.1.0 - 2021.08.15
 
-Initial public release
+[Initial public release](https://github.com/meganrenae21/life-bingo/releases/tag/v0.1.0)
