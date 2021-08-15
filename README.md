@@ -28,6 +28,7 @@
     - [How do I report a bug or issue?](#How-do-I-report-a-bug-or-issue)
     - [Do you welcome pull requests?](#Do-you-welcome-pull-requests)
     - [Some of your dependencies are outdated or deprecated.](#Some-of-your-dependencies-are-outdated-or-deprecated)
+    - [Is there an online mode?](#Is-there-an-online-mode)
   - [Credits](#Credits)
   - [Current Version](#Current-Version)
   - [Changelog](#Changelog)
@@ -43,12 +44,20 @@ Currently only [npm](https://www.npmjs.com/) is supported. Node.js is required. 
 
 This will tell you the versions of Node.js and npm your system is currently running, if they are installed. If not already installed, you can download the appropriate [Node.js installer](https://nodejs.org/en/download/) for your operating system. Make sure to download from the LTS tab, as these versions have been tested with npm. 
 
-If you install Node this way, npm will come prepackaged with it, so no separate installation is necessary. Navigate to your desired path in the terminal, then run:
+If you install Node this way, npm will come prepackaged with it, so no separate installation is necessary. Navigate to your desired path in the terminal, and then:
 
   ```
+  # clone this repository
   git clone https://github.com/meganrenae21/life-bingo.git
+
+  # navigate to the folder where this repo was saved
+
   cd life-bingo
+
+  # install the app
   npm install
+
+  # start the app (you will run this each time you want to open the app)
   npm start
   ```
 
@@ -167,6 +176,10 @@ That said, this project is open source, so feel free to clone and fork it and ma
 ### Some of your dependencies are outdated or deprecated.
 
 Yes, I am aware of this issue, and I am actively attempting to bring this up to date. If you happen to notice a dependency that is currently deprecated or no longer being maintained, please see the [issues tab](https://github.com/meganrenae21/life-bingo/issues) to see if there's already an issue open for it. If there isn't, please open an issue so that I can be aware. 
+
+### Is there an online mode?
+
+At the moment, no. I do want to make an online version of the app happen, though. You can see where I'm at by taking a look at the [Online Mode](https://github.com/meganrenae21/life-bingo/projects/1) project in the Projects tab. However, I can't promise that this will be done any time soon. 
 ## Credits
 
   - [Electron](https://www.electronjs.org/)
