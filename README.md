@@ -1,10 +1,14 @@
 # Your Best Self Bingo
-![logo](build/icon.ico)
-
-![version-badge](https://img.shields.io/static/v1?label=version&message=0.1.0&color=lightgrey&style=plastic)
-![license-badge](https://img.shields.io/static/v1?label=license&message=MIT&color=brightgreen&style=plastic)
-
- *BINGO to help you achieve your goals.*
+<p align="center">
+<img src="build/icon.ico" alt="logo" />
+</p>
+<p style="display:flex;justify-content:center">
+<img src="https://img.shields.io/static/v1?label=version&message=0.1.0&color=lightgrey&style=plastic" alt="version 0.1.0" style="padding-right:2px;" />
+<img src="https://img.shields.io/static/v1?label=license&message=MIT&color=brightgreen&style=plastic" alt="MIT license" style="padding-left:2px;" />
+</p>
+<p align="center">
+ <i>BINGO to help you achieve your goals.</i>
+</p>
 
 ## Contents
 
@@ -19,10 +23,10 @@
    - [Getting a Bingo](#Getting-a-Bingo)
    - [Blackouts](#Blackouts)
   - [FAQ](#FAQ)
-    - [How do I delete a list?](#How-do-I-delete-a-list?)
-    - [How do I delete a card?](#How-do-I-delete-a-card?)
-    - [How do I report a bug or issue?](#How-do-I-report-a-bug-or-issue?)
-    - [Do you welcome pull requests?](#Do-you-welcome-pull-requests?)
+    - [How do I delete a list?](#How-do-I-delete-a-list)
+    - [How do I delete a card?](#How-do-I-delete-a-card)
+    - [How do I report a bug or issue?](#How-do-I-report-a-bug-or-issue)
+    - [Do you welcome pull requests?](#Do-you-welcome-pull-requests)
     - [Some of your dependencies are outdated or deprecated.](#Some-of-your-dependencies-are-outdated-or-deprecated)
   - [Credits](#Credits)
   - [Current Version](#Current-Version)
@@ -146,12 +150,13 @@ Like lists, currently the only way to delete a card is to do so manually using t
 
 ### How do I report a bug or issue?
 
-Please use the [issues tab](https://github.com/meganrenae21/life-bingo/issues) for bug reporting. Make sure to look through current open issues to ensure you are not submitting a duplicate. Please properly label your issue with one of the following:
+Please use the [issues tab](https://github.com/meganrenae21/life-bingo/issues) for bug reporting. Make sure to look through current open issues to ensure you are not submitting a duplicate. Please properly label your issue with one of the following (**please do not give the issue a priority label**):
 
 - **bug**: something is broken that won't allow you to access the app's core functionality
 - **enhancement**: you have a suggestion for an added feature or functionality
 - **question**: you need info on how to do something in the app, or a general question about how the app works
 - **documentation**: you found something amiss in the doc file, such as a broken link or directions that are no longer valid
+- **dependency**: an issue related to one of the app's dependency (ex: a dependency is deprecated, or the app is out of date with a dependency)
 
 ### Do you welcome pull requests?
 
@@ -174,3 +179,7 @@ Yes, I am aware of this issue, and I am actively attempting to bring this up to 
   - [shortid](https://github.com/dylang/shortid)
 
 ## Changelog
+
+### 0.1.0 - 2021.08.15
+
+Initial public release
