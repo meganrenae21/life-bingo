@@ -51,7 +51,6 @@ If you install Node this way, npm will come prepackaged with it, so no separate 
   git clone https://github.com/meganrenae21/life-bingo.git
 
   # navigate to the folder where this repo was saved
-
   cd life-bingo
 
   # install the app
