@@ -30,7 +30,6 @@
     - [Some of your dependencies are outdated or deprecated.](#Some-of-your-dependencies-are-outdated-or-deprecated)
     - [Is there an online mode?](#Is-there-an-online-mode)
   - [Credits](#Credits)
-  - [Current Version](#Current-Version)
   - [Changelog](#Changelog)
   
 ## Installation and Startup
