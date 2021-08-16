@@ -34,6 +34,7 @@
     - [Do you welcome pull requests?](#Do-you-welcome-pull-requests)
     - [Some of your dependencies are outdated or deprecated.](#Some-of-your-dependencies-are-outdated-or-deprecated)
     - [Is there an online mode?](#Is-there-an-online-mode)
+    - [Is there a mobile app?](#Is-there-a-mobile-app)
   - [Credits](#Credits)
   - [Changelog](#Changelog)
   
@@ -185,6 +186,10 @@ Yes, I am aware of this issue, and I am actively attempting to bring this up to 
 ### Is there an online mode?
 
 At the moment, no. I do want to make an online version of the app happen, though. You can see where I'm at by taking a look at the [Online Mode](https://github.com/meganrenae21/life-bingo/projects/1) project in the Projects tab. However, I can't promise that this will be done any time soon. 
+
+### Is there a mobile app?
+
+No. Right now I have no plans to bring this app to mobile. 
 ## Credits
 
   - [Electron](https://www.electronjs.org/)
