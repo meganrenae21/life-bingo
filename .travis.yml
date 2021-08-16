@@ -12,5 +12,7 @@ cache:
     - node_modules
     - $HOME/.cache/electron
     - $HOME/.cache/electron-builder
-install: npm install
-script: npm run test
+script: 
+  - cd life-bingo
+  - npm install
+  - npm run test
