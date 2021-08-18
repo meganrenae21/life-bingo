@@ -1,12 +1,13 @@
 # Your Best Self Bingo
 <p align="center">
-<img src="https://img.shields.io/github/license/meganrenae21/life-bingo?style=plastic" alt="MIT license" style="padding-right:2px;" />
-<img src="https://img.shields.io/github/v/release/meganrenae21/life-bingo?style=plastic" alt="release 0.1.0" style="padding-left:2px;padding-right:2px;">
-<img src="https://img.shields.io/github/repo-size/meganrenae21/life-bingo?style=plastic" alt="repo-size" style="padding-left:2px;padding-right:2px;">
-<img src="https://img.shields.io/github/downloads/meganrenae21/life-bingo/total?style=plastic" alt="total downloads" style="padding-left:2px;padding-right:2px;">
-<img src="https://img.shields.io/github/issues-raw/meganrenae21/life-bingo?style=plastic" alt="total open issues" style="padding-left:2px;padding-right:2px;">
-<img src="https://img.shields.io/github/last-commit/meganrenae21/life-bingo/dist?style=plastic" alt="last commit" style="padding-left:2px;padding-right:2px;">
-<img src="https://img.shields.io/github/release-date/meganrenae21/life-bingo?style=plastic" alt="last release date" style="padding-left:2px;">
+<img src="https://img.shields.io/github/license/meganrenae21/life-bingo?style=flat" alt="MIT license" style="padding-right:2px;" />
+<img src="https://img.shields.io/github/v/release/meganrenae21/life-bingo?style=flat" alt="release 0.1.0" style="padding-left:2px;padding-right:2px;" />
+<img src="https://img.shields.io/github/repo-size/meganrenae21/life-bingo?style=flat" alt="repo-size" style="padding-left:2px;padding-right:2px;" />
+<img src="https://img.shields.io/github/downloads/meganrenae21/life-bingo/total?style=flat" alt="total downloads" style="padding-left:2px;padding-right:2px;" />
+<img src="https://img.shields.io/github/issues-raw/meganrenae21/life-bingo?style=flat" alt="total open issues" style="padding-left:2px;padding-right:2px;" />
+<img src="https://img.shields.io/github/last-commit/meganrenae21/life-bingo/dist?style=flat" alt="last commit" style="padding-left:2px;padding-right:2px;" />
+<img src="https://img.shields.io/github/release-date/meganrenae21/life-bingo?style=flat" alt="last release date" style="padding-left:2px;padding-right:2px;" />
+<img src="https://github.com/meganrenae21/life-bingo/actions/workflows/node.js.yml/badge.svg" alt="build" style="padding-left:2px;" />
 </p>
 <p align="center">
 <img src="build/icon.ico" alt="logo" />
