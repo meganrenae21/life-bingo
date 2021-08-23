@@ -164,8 +164,8 @@ $(document).ready(function() {
             '">' +
             docs[i].name +
             "</button></h2></div>";
-          var innerList = '<div class="collapse" id="list' + docs[i]._id + '">';
-          var innerCard =
+          innerList = '<div class="collapse" id="list' + docs[i]._id + '">';
+          innerCard =
             '<div class="card-body" id="tasks' + docs[i]._id + '">';
           docs[i]["tasks"].forEach(function(item) {
             taskitems +=
