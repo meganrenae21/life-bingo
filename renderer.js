@@ -157,13 +157,13 @@ $(document).ready(function() {
           var innerCard = "";
           var accordionBtn = "";
           accordionBtn =
-            '<div class="card"><div class="card-header"><h2 class="mb-0"><button class="btn btn-link" type="button" data-toggle="collapse" data-target="#list' +
+            '<div class="card"><div class="card-header"><h2 class="mb-0"><div class="btn-group mr-2"><button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#list' +
             docs[i]._id +
             '"aria-expanded="false" aria-controls="list' +
             docs[i]._id +
             '">' +
             docs[i].name +
-            "</button></h2></div>";
+            "</button><button class='btn btn-danger' type='button' data-delete='" + docs[i]._id + "' onclick='deleteList()'>Delete</button></div></h2></div>";
           innerList = '<div class="collapse" id="list' + docs[i]._id + '">';
           innerCard =
             '<div class="card-body" id="tasks' + docs[i]._id + '">';
@@ -530,3 +530,14 @@ function finishDelete(did) {
       userLists.persistence.compactDatafile;
     });
 }
+
+var listID;
+function deleteList(){
+  var e = event.target;
+  listID = e.dataset.delete;
+  var h2 = e.parentNode;
+  var listhd = h2.parentNode;
+  var listcard = listhd.parentNode;
+  listcard.parentNode.removeChild(listcard);
+  userLists.remove({_id: listID})
+  }
