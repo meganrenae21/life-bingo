@@ -71,7 +71,7 @@ If you are unfamiliar with how to navigate the file system via the terminal, you
 You can also download the [latest release](https://github.com/meganrenae21/life-bingo/releases) in a compressed file and extract it to your desired location rather than cloning, if you'd prefer. You would still need to run `npm install` to download the dependencies and run the app on your system.
 ## How to Play
 
-YBS Bingo has three core data types: _tasks_, _lists_, and _cards_. 
+YBS Bingo has three core data types: _tasks_, _lists_, and _cards_.
 
 Each space on the bingo card is filled with a _task_, and _tasks_ are entered in _lists_. _Cards_ are generated from selected _lists_. 
 
@@ -91,20 +91,21 @@ For example, if **Carol**, **Kathy**, and **Layla** wanted to make cards using s
 
 Once a list has at least 24 tasks, you can generate a bingo card using tasks in that list. In this case, you could create separate cards for Layla, Carol, and Kathy. You can also *combine* lists to create a card (for instance, if you wanted to create separate lists for work-related tasks and personal tasks but wanted both types of tasks on one card), as long as there are 24 tasks _total_ on all the lists you are generating the card from. 
 
-The following sections will go into more detail about how to create and modify cards, tasks, and lists. 
+The following sections will go into more detail about how to create and modify cards, tasks, and lists.
 
 ### Getting Started
 
-When you open the app, you will see a 5x5 grid, with each grid space labeled by its position (B1, B2, etc.). The Free space at the center of the grid is in a selected position. The other spaces are not selected, and while you can hover over them, you'll notice that if you click on them, nothing happens. Before you can do anything, you need to set up your card, which is done using the top menu. 
+When you open the app, you will see a 5x5 grid, with each grid space labeled by its position (B1, B2, etc.). The Free space at the center of the grid is in a selected position. The other spaces are not selected, and while you can hover over them, you'll notice that if you click on them, nothing happens. Before you can do anything, you need to set up your card, which is done using the top menu.
+
 ### Lists and Tasks
 
-Before you can add tasks to be added to the card, you need to create a list to add tasks to. You will be unable to add any tasks if you don't have a list to associate them with. 
+Before you can add tasks to be added to the card, you need to create a list to add tasks to. You will be unable to add any tasks if you don't have a list to associate them with.
 
-Click the "New List" button to create a new list. Give the list a descriptive title. You also have the option to add tags to your list, for further organization. This is not required. 
+Click the "New List" button to create a new list. Give the list a descriptive title. You also have the option to add tags to your list, for further organization. This is not required.
 
 ![Create new lists](img/make_lists.gif)
 
-Once you've created a list, click save. You can create as many lists as you want. When you are ready to start adding tasks, exit the New List module and click "Add Tasks" on the top menu. 
+Once you've created a list, click save. You can create as many lists as you want. When you are ready to start adding tasks, exit the New List module and click "Add Tasks" on the top menu.
 
 ![Add your tasks](img/add_tasks.gif)
 
@@ -117,33 +118,36 @@ If click on "View Lists", a modal will open up showing all of your lists. Click 
 
 After you've entered your tasks, there's one more step to take before you can generate a card -- setting your active lists.
 
-This is in the "Options" menu. You'll see a checklist of all of your lists. Check each list whose tasks you want to generate your card from. As mentioned, you'll need at least 24 tasks total between all of your active lists to create a card. Also note that if you have _more_ than 24 tasks, not all of your tasks will appear on your card. 
+This is in the "Options" menu. You'll see a checklist of all of your lists. Check each list whose tasks you want to generate your card from. As mentioned, you'll need at least 24 tasks total between all of your active lists to create a card. Also note that if you have _more_ than 24 tasks, not all of your tasks will appear on your card.
 
 ![Set active lists](img/set_active_lists.gif)
 ### Cards
 
-Once you've entered enough tasks and selected your active lists, generating your bingo card is as simple as clicking "Generate Card". Click on tasks to mark them as complete. If you accidentally click on a box, click again to unmark it. 
+Once you've entered enough tasks and selected your active lists, generating your bingo card is as simple as clicking "Generate Card". Click on tasks to mark them as complete. If you accidentally click on a box, click again to unmark it.
 
 ![Make a play with a new card](img/new_card.gif)
 
-Note: The free space at the center of the card cannot be unchecked. 
+Note: The free space at the center of the card cannot be unchecked.
   
 #### Saving Your Card
 
-You cannot retrieve your card in a future session without saving it first. Click "Save Card", which opens a modal allowing you to name your card and, if you want, add tags. When you click, this will store the card in the app's database, which is hosted locally on your machine. 
+You cannot retrieve your card in a future session without saving it first. Click "Save Card", which opens a modal allowing you to name your card and, if you want, add tags. When you click, this will store the card in the app's database, which is hosted locally on your machine.
 
 ![Save your card](img/save_card.gif)
 
-As of now, you cannot save your card as a copy -- saving automatically overrides previous data on that card. This will (hopefully) be fixed in a future release. 
+Saving your card as a copy will create a new card, rather than overriding changes to the current card. When you do this, the active card will be the newly made copy, meaning if you save again, the changes will be saved on the newer card. You'll need to [retrieve the original card](#retrieving-your-card) to save changes on it.
+
+![Copy your card](image/copy_card.gif)
+
 #### Retrieving Your Card
 
-To retrieve a card you've previously saved, click "View Cards" from the menu. This will give you a table with a list of all of your saved cards, along with their tags. Each card will let you know how many bingos you have on that card and whether or not you have a blackout (have completed every task on the card). 
+To retrieve a card you've previously saved, click "View Cards" from the menu. This will give you a table with a list of all of your saved cards, along with their tags. Each card will let you know how many bingos you have on that card and whether or not you have a blackout (have completed every task on the card). You can also delete cards from this screen. Deleting a card will remove it from the app's data center, so be careful -- deleted cards cannot be retrieved.
 
 ![Retrieve your card](img/retrieve_card.gif)
 
 ### Getting a Bingo
 
-There are twelve possible "bingos" on each card -- one for each column, one for each row, and one for each diagonal. The total number of bingos you have is calculated upon save and then stored in the database. 
+There are twelve possible "bingos" on each card -- one for each column, one for each row, and one for each diagonal. The total number of bingos you have is calculated upon save and then stored in the database.
 
 ![Getting a bingo](img/bingo.gif)
 ### Blackouts
@@ -153,16 +157,6 @@ A blackout occurs when you've completed every task on your card. The card remain
 ![Blackout](img/blackout.gif)
 
 ## FAQ
-
-### How do I delete a list?
-
-Right now, the only way to delete a list is to do so manually. Lists are stored in the `data/userLists.db` file. Though it is not recommended to make changes directly to this file, you can delete a list by finding and removing it from this file. 
-
-Functionality to delete a list in-app is currently on the priority list and will hopefully be added in a near-future release. 
-
-### How do I delete a card?
-
-Like lists, currently the only way to delete a card is to do so manually using the `data/bingoCards.db` file, and deleting the line storing the card you'd like to remove. Again, it is not recommended to change anything in the data files, so in-app functionality is being worked out and will be added in a future release. 
 
 ### How do I report a bug or issue?
 
@@ -176,21 +170,22 @@ Please use the [issues tab](https://github.com/meganrenae21/life-bingo/issues) f
 
 ### Do you welcome pull requests?
 
-Since this app is currently so early in development and I'm still working out its core features, at the time the answer is no. Once I get the wheels spinning, I'd be more than happy to welcome PRs to add features and improve function. If you have a request for an enhancement at the moment, you can always submit an [issue](https://github.com/meganrenae21/life-bingo/issues) with the *enhancement* label. 
+Since this app is currently so early in development and I'm still working out its core features, at the time the answer is no. Once I get the wheels spinning, I'd be more than happy to welcome PRs to add features and improve function. If you have a request for an enhancement at the moment, you can always submit an [issue](https://github.com/meganrenae21/life-bingo/issues) with the *enhancement* label.
 
-That said, this project is open source, so feel free to clone and fork it and make it your own. 
+That said, this project is open source, so feel free to clone and fork it and make it your own.
 
 ### Some of your dependencies are outdated or deprecated.
 
-Yes, I am aware of this issue, and I am actively attempting to bring this up to date. If you happen to notice a dependency that is currently deprecated or no longer being maintained, please see the [issues tab](https://github.com/meganrenae21/life-bingo/issues) to see if there's already an issue open for it. If there isn't, please open an issue so that I can be aware. 
+Yes, I am aware of this issue, and I am actively attempting to bring this up to date. If you happen to notice a dependency that is currently deprecated or no longer being maintained, please see the [issues tab](https://github.com/meganrenae21/life-bingo/issues) to see if there's already an issue open for it. If there isn't, please open an issue so that I can be aware.
 
 ### Is there an online mode?
 
-At the moment, no. I do want to make an online version of the app happen, though. You can see where I'm at by taking a look at the [Online Mode](https://github.com/meganrenae21/life-bingo/projects/1) project in the Projects tab. However, I can't promise that this will be done any time soon. 
+At the moment, no. I do want to make an online version of the app happen, though. You can see where I'm at by taking a look at the [Online Mode](https://github.com/meganrenae21/life-bingo/projects/1) project in the Projects tab. However, I can't promise that this will be done any time soon.
 
 ### Is there a mobile app?
 
 No. Right now I have no plans to bring this app to mobile. 
+
 ## Credits
 
   - [Electron](https://www.electronjs.org/)
