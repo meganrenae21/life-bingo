@@ -157,15 +157,15 @@ $(document).ready(function() {
           var innerCard = "";
           var accordionBtn = "";
           accordionBtn =
-            '<div class="card"><div class="card-header"><h2 class="mb-0"><button class="btn btn-link" type="button" data-toggle="collapse" data-target="#list' +
+            '<div class="card"><div class="card-header"><h2 class="mb-0"><div class="btn-group mr-2"><button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#list' +
             docs[i]._id +
             '"aria-expanded="false" aria-controls="list' +
             docs[i]._id +
             '">' +
             docs[i].name +
-            "</button></h2></div>";
-          var innerList = '<div class="collapse" id="list' + docs[i]._id + '">';
-          var innerCard =
+            "</button><button class='btn btn-danger' type='button' data-delete='" + docs[i]._id + "' onclick='deleteList()'>Delete</button></div></h2></div>";
+          innerList = '<div class="collapse" id="list' + docs[i]._id + '">';
+          innerCard =
             '<div class="card-body" id="tasks' + docs[i]._id + '">';
           docs[i]["tasks"].forEach(function(item) {
             taskitems +=
@@ -326,6 +326,32 @@ $(document).ready(function() {
     bingoCards.persistence.compactDatafile;
     $("#saveModal").modal("hide");
   });
+  $("#copyCardBtn").click(function(){
+    gameID = uuid();
+    var copiedTaskArr = new Array();
+    var copiedCard_Title = $("#cardName").val();
+    var copiedCard_Tags = $("#cardTags").val();
+    for (var c = 0; c < bingoTasks.length; c++) {
+      copiedTaskArr.push({
+        Task: bingoTasks[c].Task,
+        Position: bingoTasks[c].Position,
+        Completed: bingoTasks[c].Completed,
+        ID: bingoTasks[c].Id
+      });
+    }
+    bingoCards.insert(
+      {
+        Query_ID: gameID,
+        Title: copiedCard_Title,
+        Tags: copiedCard_Tags,
+        Tasks: copiedTaskArr,
+        Bingos: card.bingos,
+        Blackout: card.blackout
+      }
+    );
+    bingoCards.persistence.compactDatafile;
+    $("#saveModal").modal("hide");
+  })
 });
 $("#viewCards").on("shown.bs.modal", function() {
   // get title for each saved card
@@ -339,6 +365,7 @@ $("#viewCards").on("shown.bs.modal", function() {
       var blackout = docs[i].Blackout;
       var bingos = docs[i].Bingos;
       var tasks = docs[i].Tasks;
+      var delCardBtn = "<button type='button' class='btn btn-danger btn-sm' data-delete='" + docs[i]._id + "' onClick='deleteCard()'>Delete</button>"
       var completedTasks = 0;
       for (h = 0; h < tasks.length; h++) {
         var completed = tasks[h].Completed;
@@ -363,6 +390,8 @@ $("#viewCards").on("shown.bs.modal", function() {
           bingos +
           "</td><td>" +
           blackout +
+          "</td><td>" +
+          delCardBtn +
           "</td></tr>"
       );
     }
@@ -529,4 +558,46 @@ function finishDelete(did) {
       userLists.update({ _id: did }, { $set: { tasks: arr } });
       userLists.persistence.compactDatafile;
     });
+}
+
+var listID;
+function deleteList(){
+  var e = event.target;
+  listID = e.dataset.delete;
+  var h2 = e.parentNode;
+  var listhd = h2.parentNode;
+  var listcard = listhd.parentNode;
+  swal({
+    title: "Are you sure you want to delete this list?",
+    text: "Click OK to delete the list, or click anywhere outside this modal to return.",
+    icon: "warning",
+    dangerMode: true,
+  })
+  .then(willDelete => {
+    if (willDelete) {
+      listcard.parentNode.removeChild(listcard);
+      userLists.remove({_id: listID})
+      swal("Deleted!", "Your list has been deleted!", "success");
+    }
+  });
+}
+
+var cardID;
+function deleteCard(){
+  var e = event.target;
+  cardID = e.dataset.delete;
+  var td = e.parentNode;
+  var tr = td.parentNode;
+  swal({
+    title: "Are you sure you want to delete this card?",
+    text: "Click OK to delete the card, or click anywhere outside this modal to return.",
+    icon: "warning",
+    dangerMode: true,
+  })
+  .then(willDelete => {
+    if (willDelete) {
+      tr.parentNode.removeChild(tr);
+      bingoCards.remove({_id: cardID});
+    }
+  })
 }
