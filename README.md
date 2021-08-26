@@ -50,25 +50,30 @@ Currently only [npm](https://www.npmjs.com/) is supported. Node.js is required. 
 
 This will tell you the versions of Node.js and npm your system is currently running, if they are installed. If not already installed, you can download the appropriate [Node.js installer](https://nodejs.org/en/download/) for your operating system. Make sure to download from the LTS tab, as these versions have been tested with npm. 
 
-If you install Node this way, npm will come prepackaged with it, so no separate installation is necessary. Navigate to your desired path in the terminal, and then:
+If you install Node this way, npm will come prepackaged with it, so no separate installation is necessary. 
+
+You can download the [latest production-ready release](https://github.com/meganrenae21/life-bingo/releases/tag/v0.1.0) (recommended) or the [latest pre-production version](https://github.com/meganrenae21/life-bingo/releases/tag/v0.1.1) and unzip the files to your desired location. 
+
+If you'd prefer, you can also use git clone to install on your system:
+
+```
+### to install the latest stable version
+git clone --branch dist https://github.com/meganrenae21/life-bingo.git
+
+### to install the latest prerelease
+git clone --branch develop https://github.com/meganrenae21/life-bingo.git
+```
+
+Note that if you download a prerelease, the documentation (this readme file) may not be up to date. Be sure to switch this repository branch to `develop` for the most current documentation.
+
+In the terminal, navigate to the path that has the `package.json` file and start the app with:
 
   ```
-  # clone this repository
-  git clone https://github.com/meganrenae21/life-bingo.git
-
-  # navigate to the folder where this repo was saved
-  cd life-bingo
-
-  # install the app
-  npm install
-
-  # start the app (you will run this each time you want to open the app)
   npm start
   ```
 
 If you are unfamiliar with how to navigate the file system via the terminal, you can refer to this quick little crash course from [Codecademy](https://www.codecademy.com/learn/learn-the-command-line/modules/learn-the-command-line-navigation). 
 
-You can also download the [latest release](https://github.com/meganrenae21/life-bingo/releases) in a compressed file and extract it to your desired location rather than cloning, if you'd prefer. You would still need to run `npm install` to download the dependencies and run the app on your system.
 ## How to Play
 
 YBS Bingo has three core data types: _tasks_, _lists_, and _cards_. 
