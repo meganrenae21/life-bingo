@@ -3,8 +3,8 @@
 const uuid = require("uuid-random");
 // uuid is used for bingo cards
 
-const shortid = require("shortid");
-// shortid is used for task ids
+const nanoid = require("nanoid");
+// nanoid is used for task ids
 
 const electron = require("electron");
 
@@ -91,7 +91,7 @@ $(document).ready(function() {
   $("#saveTaskBtn").click(function() {
     var assignedList = $("#selectList").val();
     var task = $("#taskinput").val();
-    var taskid = shortid.generate();
+    var taskid = nanoid();
     userLists.update(
       { name: assignedList },
       { $addToSet: { tasks: { task: task, id: taskid } } },
