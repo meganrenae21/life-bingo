@@ -9,7 +9,8 @@ function createWindow() {
     width: 800,
     height: 700,
     webPreferences: {
-      nodeIntegration: true
+      nodeIntegration: true,
+      contextIsolation: false
     },
     icon: "build/icon.ico"
   });
@@ -21,7 +22,8 @@ function createWindow() {
       modal: true,
       parent: parentWindow,
       webPreferences: {
-        nodeIntegration: true
+        nodeIntegration: true,
+        contextIsolation: false
       }
     });
 
