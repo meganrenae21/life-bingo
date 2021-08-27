@@ -36,6 +36,7 @@
     - [Some of your dependencies are outdated or deprecated.](#Some-of-your-dependencies-are-outdated-or-deprecated)
     - [Is there an online mode?](#Is-there-an-online-mode)
     - [Is there a mobile app?](#Is-there-a-mobile-app)
+  - [Important Security Notice](#Important-Security-Notice)
   - [Credits](#Credits)
   - [Changelog](#Changelog)
   
@@ -196,6 +197,14 @@ At the moment, no. I do want to make an online version of the app happen, though
 ### Is there a mobile app?
 
 No. Right now I have no plans to bring this app to mobile. 
+<<<<<<< Updated upstream
+=======
+
+## Important Security Notice
+
+This app does not load any remote content. Instead, it works with local files stored in your computer. All data is saved on your system. During installation, all dependencies are downloaded and saved locally. Installation is the *only* time remote data is retrieved. Because of this, *Life Bingo* is naturally insulated from remote threats and is safe to use in this form. Keep in mind, though, security vulnerabilities may occur if you attempt to update the source code to interact with any remote content, including setting up a remote server to store data. There are certain configurations that need to be set before the app can be considered secure enough to load remote data. It is **highly** recommended that anyone wishing to make changes of this sort read Electrons [security documentation](https://www.electronjs.org/docs/tutorial/security).
+
+>>>>>>> Stashed changes
 ## Credits
 
   - [Electron](https://www.electronjs.org/)
@@ -211,4 +220,4 @@ No. Right now I have no plans to bring this app to mobile.
 
 ### 0.1.0 - 2021.08.15
 
-[Initial public release](https://github.com/meganrenae21/life-bingo/releases/tag/v0.1.0)
+[Initial betarelease](https://github.com/meganrenae21/life-bingo/releases/tag/v0.1.0)
