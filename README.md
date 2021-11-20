@@ -36,6 +36,7 @@
     - [Some of your dependencies are outdated or deprecated.](#Some-of-your-dependencies-are-outdated-or-deprecated)
     - [Is there an online mode?](#Is-there-an-online-mode)
     - [Is there a mobile app?](#Is-there-a-mobile-app)
+  - [Important Security Notice](#Important-Security-Notice)
   - [Credits](#Credits)
   - [Changelog](#Changelog)
   
@@ -210,4 +211,4 @@ This app does not load any remote content. Instead, it works with local files st
 
 ### 0.1.0 - 2021.08.15
 
-[Initial public release](https://github.com/meganrenae21/life-bingo/releases/tag/v0.1.0)
+[Initial beta release](https://github.com/meganrenae21/life-bingo/releases/tag/v0.1.0)
